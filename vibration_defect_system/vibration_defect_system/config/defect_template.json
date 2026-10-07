@@ -1,0 +1,16 @@
+{
+  "machine_id": "PUMP-01",
+  "specs": {
+    "nominal_rpm": 1800, "rpm_variation_pct": 5, "sample_rate_hz": 10000,
+    "bearing": {"n_balls": 9, "ball_dia_mm": 7.94, "pitch_dia_mm": 39.04, "contact_angle_deg": 0},
+    "envelope_band_hz": [2000, 4500]
+  },
+  "intensity_levels": ["Low", "Medium", "High", "Critical"],
+  "defects": [
+    {"name": "Unbalance", "method": "spectrum", "base": "shaft", "orders": [1], "tolerance_hz": 1.0, "thresholds": [0.08, 0.2, 0.4, 0.8]},
+    {"name": "Misalignment", "method": "spectrum", "base": "shaft", "orders": [2], "tolerance_hz": 1.0, "thresholds": [0.06, 0.15, 0.3, 0.6]},
+    {"name": "Mechanical Looseness", "method": "spectrum", "base": "shaft", "orders": [3, 4, 5], "tolerance_hz": 1.0, "thresholds": [0.05, 0.12, 0.25, 0.5]},
+    {"name": "Bearing Outer Race Fault", "method": "envelope", "base": "BPFO", "orders": [1, 2], "tolerance_hz": 2.0, "thresholds": [0.02, 0.06, 0.12, 0.25]},
+    {"name": "Bearing Inner Race Fault", "method": "envelope", "base": "BPFI", "orders": [1, 2], "tolerance_hz": 2.0, "thresholds": [0.02, 0.06, 0.12, 0.25]}
+  ]
+}
